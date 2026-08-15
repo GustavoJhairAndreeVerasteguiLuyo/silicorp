@@ -1,0 +1,3275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SILICORP | Cobre & Silicio del Perú</title>
+
+<meta name="description"
+content="Andes Minerals - Empresa peruana dedicada a la extracción y procesamiento responsable de cobre y recursos silíceos.">
+
+<style>
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+    --primary: #c87518;
+    --primary-light: #f0a340;
+    --secondary: #0d1720;
+    --secondary-2: #162530;
+    --dark: #071017;
+    --dark-2: #0c151c;
+    --light: #f5f7f8;
+    --white: #ffffff;
+    --text: #26323a;
+    --muted: #71808a;
+    --border: rgba(255,255,255,.12);
+
+    --shadow:
+        0 20px 50px rgba(0,0,0,.15);
+
+    --radius: 18px;
+    --transition: .35s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background: var(--light);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+.container {
+    width: min(1180px, 92%);
+    margin: auto;
+}
+
+section {
+    padding: 100px 0;
+}
+
+.section-header {
+    max-width: 750px;
+    margin-bottom: 55px;
+}
+
+.section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    color: var(--primary);
+    font-size: .82rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+}
+
+.section-tag::before {
+    content: "";
+    width: 28px;
+    height: 2px;
+    background: var(--primary);
+}
+
+.section-header h2 {
+    font-size: clamp(2rem, 4vw, 3.3rem);
+    line-height: 1.1;
+    color: var(--secondary);
+    margin-bottom: 18px;
+}
+
+.section-header p {
+    color: var(--muted);
+    font-size: 1.05rem;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 14px 23px;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+    font-weight: 800;
+
+    transition: var(--transition);
+
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+
+    box-shadow:
+        0 12px 30px rgba(200,117,24,.28);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    background: var(--primary-light);
+}
+
+.btn-outline {
+    border: 1px solid rgba(255,255,255,.3);
+    color: white;
+    background: rgba(255,255,255,.04);
+}
+
+.btn-outline:hover {
+    background: white;
+    color: var(--secondary);
+}
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 1000;
+
+    transition: var(--transition);
+}
+
+.navbar.scrolled {
+    background: rgba(7,16,23,.94);
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.2);
+}
+
+.nav-container {
+    min-height: 78px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: white;
+    text-decoration: none;
+}
+
+.logo-icon {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            #8c4308
+        );
+
+    display: grid;
+    place-items: center;
+
+    font-size: 1.3rem;
+}
+
+.logo strong {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    display: block;
+    color: #b8c3c9;
+    font-size: .65rem;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+
+    list-style: none;
+}
+
+.nav-links a {
+    color: rgba(255,255,255,.85);
+    text-decoration: none;
+
+    font-size: .9rem;
+    font-weight: 700;
+
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--primary-light);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.theme-btn,
+.menu-btn {
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid rgba(255,255,255,.15);
+    background: rgba(255,255,255,.05);
+
+    color: white;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    display: grid;
+    place-items: center;
+}
+
+.menu-btn {
+    display: none;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5,12,17,.96),
+            rgba(5,12,17,.78),
+            rgba(5,12,17,.35)
+        ),
+        radial-gradient(
+            circle at 80% 50%,
+            rgba(200,117,24,.35),
+            transparent 40%
+        ),
+        linear-gradient(
+            120deg,
+            #071017,
+            #17252e
+        );
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.03) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.03) 1px,
+            transparent 1px
+        );
+
+    background-size: 50px 50px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent
+        );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 760px;
+
+    padding-top: 80px;
+}
+
+.hero-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    color: #f6b86a;
+
+    font-weight: 800;
+    font-size: .82rem;
+
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    margin-bottom: 22px;
+}
+
+.hero-kicker span {
+    width: 38px;
+    height: 2px;
+    background: var(--primary);
+}
+
+.hero h1 {
+    color: white;
+
+    font-size:
+        clamp(3rem, 7vw, 6rem);
+
+    line-height: .95;
+
+    letter-spacing: -4px;
+
+    margin-bottom: 25px;
+}
+
+.hero h1 em {
+    color: var(--primary-light);
+    font-style: normal;
+}
+
+.hero p {
+    max-width: 650px;
+
+    color: #c5d0d5;
+
+    font-size: 1.15rem;
+
+    margin-bottom: 35px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.hero-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 45px;
+
+    margin-top: 70px;
+}
+
+.hero-stat strong {
+    display: block;
+
+    color: white;
+
+    font-size: 2rem;
+}
+
+.hero-stat span {
+    color: #95a5ad;
+    font-size: .8rem;
+}
+
+/* Decorative mountain */
+
+.mountain {
+    position: absolute;
+
+    right: -5%;
+    bottom: -5%;
+
+    width: 65%;
+    height: 75%;
+
+    background:
+        linear-gradient(
+            145deg,
+            transparent 40%,
+            rgba(255,255,255,.035) 40%
+        );
+
+    clip-path:
+        polygon(
+            0 100%,
+            30% 35%,
+            45% 60%,
+            65% 15%,
+            100% 100%
+        );
+}
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about {
+    background: white;
+}
+
+.about-grid {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 70px;
+
+    align-items: center;
+}
+
+.about-visual {
+    min-height: 500px;
+
+    border-radius: 25px;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1b2d38,
+            #0a131a
+        );
+}
+
+.about-visual::before {
+    content: "Cu";
+
+    position: absolute;
+
+    right: 35px;
+    top: 30px;
+
+    font-size: 12rem;
+    font-weight: 900;
+
+    color: rgba(200,117,24,.12);
+}
+
+.mine-card {
+    position: absolute;
+
+    left: 30px;
+    right: 30px;
+    bottom: 30px;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.12);
+
+    backdrop-filter: blur(12px);
+
+    color: white;
+}
+
+.mine-card strong {
+    display: block;
+    font-size: 1.5rem;
+}
+
+.mine-card span {
+    color: #aab8bf;
+}
+
+.about-content h2 {
+    font-size: clamp(2rem,4vw,3rem);
+    line-height: 1.1;
+
+    color: var(--secondary);
+
+    margin-bottom: 20px;
+}
+
+.about-content p {
+    color: var(--muted);
+
+    margin-bottom: 18px;
+}
+
+.check-list {
+    list-style: none;
+
+    margin-top: 30px;
+
+    display: grid;
+    gap: 15px;
+}
+
+.check-list li {
+    display: flex;
+    gap: 12px;
+
+    font-weight: 700;
+}
+
+.check-list i {
+    width: 24px;
+    height: 24px;
+
+    border-radius: 50%;
+
+    background: rgba(200,117,24,.12);
+
+    color: var(--primary);
+
+    display: grid;
+    place-items: center;
+
+    font-style: normal;
+}
+
+/* =========================================================
+   MINERALS
+========================================================= */
+
+.minerals {
+    background: #eef1f2;
+}
+
+.minerals-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+.mineral-card {
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 40px;
+
+    min-height: 390px;
+
+    border-radius: var(--radius);
+
+    background: var(--secondary);
+
+    color: white;
+
+    transition: var(--transition);
+}
+
+.mineral-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 25px 50px rgba(0,0,0,.18);
+}
+
+.mineral-card.silicon {
+    background:
+        linear-gradient(
+            135deg,
+            #293840,
+            #0e171c
+        );
+}
+
+.mineral-symbol {
+    font-size: 4rem;
+
+    font-weight: 900;
+
+    color: var(--primary-light);
+
+    line-height: 1;
+
+    margin-bottom: 25px;
+}
+
+.mineral-card h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.mineral-card p {
+    color: #aab8bf;
+    max-width: 520px;
+}
+
+.mineral-card ul {
+    margin-top: 25px;
+
+    list-style: none;
+
+    display: grid;
+    gap: 10px;
+}
+
+.mineral-card li {
+    color: #d4dde1;
+}
+
+.mineral-card li::before {
+    content: "◆";
+    color: var(--primary);
+    margin-right: 10px;
+}
+
+/* =========================================================
+   PROCESS
+========================================================= */
+
+.process {
+    background: var(--dark);
+    color: white;
+}
+
+.process .section-header h2 {
+    color: white;
+}
+
+.process .section-header p {
+    color: #9eacb3;
+}
+
+.process-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    gap: 12px;
+
+    position: relative;
+}
+
+.process-step {
+    position: relative;
+
+    padding: 30px 20px;
+
+    min-height: 230px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
+    border-radius: 15px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    transition: var(--transition);
+}
+
+.process-step:hover {
+    border-color: var(--primary);
+    transform: translateY(-7px);
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    display: grid;
+    place-items: center;
+
+    background: var(--primary);
+
+    font-weight: 900;
+
+    margin-bottom: 25px;
+}
+
+.process-step h3 {
+    margin-bottom: 10px;
+}
+
+.process-step p {
+    color: #8999a2;
+    font-size: .9rem;
+}
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats {
+    background:
+        linear-gradient(
+            135deg,
+            #c87518,
+            #8e470b
+        );
+
+    color: white;
+}
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 25px;
+}
+
+.stat-box {
+    text-align: center;
+
+    padding: 20px;
+
+    border-right:
+        1px solid
+        rgba(255,255,255,.25);
+}
+
+.stat-box:last-child {
+    border-right: none;
+}
+
+.stat-box strong {
+    display: block;
+
+    font-size: 3rem;
+
+    line-height: 1;
+
+    margin-bottom: 10px;
+}
+
+.stat-box span {
+    opacity: .85;
+    font-size: .9rem;
+}
+
+/* =========================================================
+   SUSTAINABILITY
+========================================================= */
+
+.sustainability {
+    background: white;
+}
+
+.sustainability-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+.sustain-card {
+    padding: 35px;
+
+    border:
+        1px solid
+        #e1e6e8;
+
+    border-radius: var(--radius);
+
+    transition: var(--transition);
+}
+
+.sustain-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: var(--shadow);
+}
+
+.sustain-icon {
+    width: 55px;
+    height: 55px;
+
+    border-radius: 14px;
+
+    display: grid;
+    place-items: center;
+
+    font-size: 1.5rem;
+
+    background: rgba(200,117,24,.12);
+
+    margin-bottom: 22px;
+}
+
+.sustain-card h3 {
+    color: var(--secondary);
+
+    margin-bottom: 10px;
+}
+
+.sustain-card p {
+    color: var(--muted);
+}
+
+/* =========================================================
+   OPERATIONS
+========================================================= */
+
+.operations {
+    background: #eef1f2;
+}
+
+.operations-grid {
+    display: grid;
+
+    grid-template-columns:
+        1.2fr .8fr;
+
+    gap: 25px;
+}
+
+.map {
+    min-height: 480px;
+
+    border-radius: 20px;
+
+    background:
+        radial-gradient(
+            circle at 45% 40%,
+            rgba(200,117,24,.35),
+            transparent 10%
+        ),
+        linear-gradient(
+            145deg,
+            #263943,
+            #0d171e
+        );
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.map::before {
+    content: "PERÚ";
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(-10deg);
+
+    color: rgba(255,255,255,.08);
+
+    font-size: 6rem;
+    font-weight: 900;
+}
+
+.location-dot {
+    position: absolute;
+
+    width: 16px;
+    height: 16px;
+
+    background: var(--primary-light);
+
+    border: 3px solid white;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 10px
+        rgba(240,163,64,.15);
+
+    cursor: pointer;
+}
+
+.location-dot::after {
+    content: attr(data-name);
+
+    position: absolute;
+
+    left: 25px;
+    top: -10px;
+
+    white-space: nowrap;
+
+    color: white;
+
+    font-size: .8rem;
+    font-weight: 700;
+}
+
+.dot-1 {
+    left: 58%;
+    top: 36%;
+}
+
+.dot-2 {
+    left: 48%;
+    top: 52%;
+}
+
+.dot-3 {
+    left: 62%;
+    top: 67%;
+}
+
+.operations-info {
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 40px;
+}
+
+.operation-item {
+    padding: 22px 0;
+
+    border-bottom:
+        1px solid
+        #e5e9eb;
+}
+
+.operation-item:last-child {
+    border-bottom: none;
+}
+
+.operation-item h3 {
+    color: var(--secondary);
+    margin-bottom: 6px;
+}
+
+.operation-item p {
+    color: var(--muted);
+    font-size: .9rem;
+}
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta {
+    padding: 80px 0;
+
+    background: var(--secondary);
+}
+
+.cta-box {
+    padding: 65px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(200,117,24,.22),
+            rgba(255,255,255,.04)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 40px;
+}
+
+.cta h2 {
+    color: white;
+
+    font-size:
+        clamp(2rem,4vw,3rem);
+
+    line-height: 1.1;
+
+    margin-bottom: 12px;
+}
+
+.cta p {
+    color: #9aa9b0;
+}
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact {
+    background: white;
+}
+
+.contact-grid {
+    display: grid;
+
+    grid-template-columns:
+        .8fr 1.2fr;
+
+    gap: 50px;
+}
+
+.contact-info h2 {
+    font-size: 2.5rem;
+
+    color: var(--secondary);
+
+    margin-bottom: 18px;
+}
+
+.contact-info > p {
+    color: var(--muted);
+
+    margin-bottom: 30px;
+}
+
+.contact-detail {
+    display: flex;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+.contact-detail-icon {
+    width: 45px;
+    height: 45px;
+
+    flex-shrink: 0;
+
+    border-radius: 10px;
+
+    display: grid;
+    place-items: center;
+
+    background: rgba(200,117,24,.12);
+}
+
+.contact-detail strong {
+    display: block;
+    color: var(--secondary);
+}
+
+.contact-detail span {
+    color: var(--muted);
+    font-size: .9rem;
+}
+
+.contact-form {
+    padding: 35px;
+
+    background: #f3f5f6;
+
+    border-radius: 20px;
+}
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 17px;
+}
+
+.form-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+.form-group.full {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    font-weight: 800;
+    font-size: .85rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+
+    padding: 14px 15px;
+
+    border:
+        1px solid
+        #d9dfe2;
+
+    border-radius: 9px;
+
+    outline: none;
+
+    font: inherit;
+
+    background: white;
+
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(200,117,24,.1);
+}
+
+.form-group textarea {
+    min-height: 130px;
+
+    resize: vertical;
+}
+
+.form-submit {
+    margin-top: 20px;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    background: #050c11;
+
+    color: white;
+
+    padding-top: 65px;
+}
+
+.footer-grid {
+    display: grid;
+
+    grid-template-columns:
+        1.5fr
+        1fr
+        1fr
+        1fr;
+
+    gap: 40px;
+
+    padding-bottom: 50px;
+}
+
+.footer-brand p {
+    color: #7f8e96;
+
+    max-width: 350px;
+
+    margin-top: 18px;
+}
+
+.footer-column h4 {
+    margin-bottom: 18px;
+}
+
+.footer-column ul {
+    list-style: none;
+
+    display: grid;
+
+    gap: 10px;
+}
+
+.footer-column a {
+    color: #84939a;
+
+    text-decoration: none;
+
+    transition: var(--transition);
+}
+
+.footer-column a:hover {
+    color: var(--primary-light);
+}
+
+.footer-bottom {
+    padding: 22px 0;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.08);
+
+    color: #65737a;
+
+    font-size: .8rem;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+/* =========================================================
+   BACK TO TOP
+========================================================= */
+
+.back-top {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background: var(--primary);
+
+    color: white;
+
+    cursor: pointer;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: var(--transition);
+
+    z-index: 900;
+}
+
+.back-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0,0,0,.75);
+
+    backdrop-filter: blur(8px);
+
+    display: none;
+
+    place-items: center;
+
+    z-index: 2000;
+
+    padding: 20px;
+}
+
+.modal.active {
+    display: grid;
+}
+
+.modal-content {
+    width: min(650px, 100%);
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 40px;
+
+    position: relative;
+
+    animation:
+        modalIn .35s ease;
+}
+
+@keyframes modalIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-close {
+    position: absolute;
+
+    right: 20px;
+    top: 20px;
+
+    border: none;
+
+    background: #eef1f2;
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    font-size: 1.2rem;
+}
+
+.modal-content h2 {
+    color: var(--secondary);
+
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    color: var(--muted);
+}
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(35px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark {
+    background: #081117;
+    color: #d9e1e5;
+}
+
+body.dark .about,
+body.dark .sustainability,
+body.dark .contact {
+    background: #081117;
+}
+
+body.dark .section-header h2,
+body.dark .about-content h2,
+body.dark .sustain-card h3,
+body.dark .operations-info,
+body.dark .contact-info h2 {
+    color: white;
+}
+
+body.dark .minerals,
+body.dark .operations {
+    background: #0d1a21;
+}
+
+body.dark .section-header p,
+body.dark .about-content p,
+body.dark .sustain-card p,
+body.dark .contact-info > p {
+    color: #91a0a8;
+}
+
+body.dark .sustain-card {
+    border-color: rgba(255,255,255,.1);
+    background: #0d1a21;
+}
+
+body.dark .operations-info {
+    background: #101f27;
+}
+
+body.dark .operation-item {
+    border-color: rgba(255,255,255,.1);
+}
+
+body.dark .operation-item p {
+    color: #8d9da5;
+}
+
+body.dark .contact-form {
+    background: #101f27;
+}
+
+body.dark .form-group input,
+body.dark .form-group textarea,
+body.dark .form-group select {
+    background: #081117;
+    border-color: rgba(255,255,255,.15);
+    color: white;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 950px) {
+
+    .nav-links {
+        position: fixed;
+
+        top: 78px;
+        left: 0;
+        right: 0;
+
+        background: #071017;
+
+        flex-direction: column;
+
+        padding: 30px;
+
+        transform: translateY(-150%);
+
+        transition: var(--transition);
+    }
+
+    .nav-links.active {
+        transform: translateY(0);
+    }
+
+    .menu-btn {
+        display: grid;
+    }
+
+    .nav-actions .btn {
+        display: none;
+    }
+
+    .about-grid,
+    .operations-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .process-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .footer-grid {
+        grid-template-columns:
+            1fr 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+
+    section {
+        padding: 75px 0;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .hero-stats {
+        gap: 25px;
+        margin-top: 45px;
+    }
+
+    .minerals-grid,
+    .sustainability-grid,
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-box {
+        border-right: none;
+
+        border-bottom:
+            1px solid
+            rgba(255,255,255,.2);
+
+        padding-bottom: 25px;
+    }
+
+    .stat-box:last-child {
+        border-bottom: none;
+    }
+
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full {
+        grid-column: auto;
+    }
+
+    .cta-box {
+        padding: 35px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar" id="navbar">
+
+    <div class="container nav-container">
+
+        <a href="#inicio" class="logo">
+
+            <div class="logo-icon">
+                ⛰
+            </div>
+
+            <div>
+                <strong>ANDES MINERALS</strong>
+                <span>MINERÍA • PROCESAMIENTO • INNOVACIÓN</span>
+            </div>
+
+        </a>
+
+        <nav>
+
+            <ul class="nav-links" id="navLinks">
+
+                <li>
+                    <a href="#empresa">Empresa</a>
+                </li>
+
+                <li>
+                    <a href="#minerales">Minerales</a>
+                </li>
+
+                <li>
+                    <a href="#proceso">Proceso</a>
+                </li>
+
+                <li>
+                    <a href="#sostenibilidad">Sostenibilidad</a>
+                </li>
+
+                <li>
+                    <a href="#operaciones">Operaciones</a>
+                </li>
+
+                <li>
+                    <a href="#contacto">Contacto</a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+        <div class="nav-actions">
+
+            <button
+                class="theme-btn"
+                id="themeBtn"
+                aria-label="Cambiar tema">
+                ☾
+            </button>
+
+            <a
+                href="#contacto"
+                class="btn btn-primary">
+                Contáctanos
+            </a>
+
+            <button
+                class="menu-btn"
+                id="menuBtn">
+                ☰
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero" id="inicio">
+
+    <div class="mountain"></div>
+
+    <div class="container">
+
+        <div class="hero-content reveal">
+
+            <div class="hero-kicker">
+                <span></span>
+                Recursos que transforman el futuro
+            </div>
+
+            <h1>
+                Minerales del
+                <em>Perú</em>.
+                Tecnología para
+                el mundo.
+            </h1>
+
+            <p>
+                Somos una empresa peruana especializada en la
+                exploración, extracción y procesamiento responsable
+                de cobre y recursos silíceos, integrando tecnología,
+                eficiencia operacional y compromiso con nuestro
+                entorno.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#minerales"
+                    class="btn btn-primary">
+                    Conoce nuestros minerales →
+                </a>
+
+                <a
+                    href="#empresa"
+                    class="btn btn-outline">
+                    Nuestra empresa
+                </a>
+
+            </div>
+
+            <div class="hero-stats">
+
+                <div class="hero-stat">
+                    <strong>+15</strong>
+                    <span>Años de experiencia</span>
+                </div>
+
+                <div class="hero-stat">
+                    <strong>02</strong>
+                    <span>Minerales estratégicos</span>
+                </div>
+
+                <div class="hero-stat">
+                    <strong>100%</strong>
+                    <span>Compromiso peruano</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     EMPRESA
+===================================================== -->
+
+<section class="about" id="empresa">
+
+    <div class="container">
+
+        <div class="about-grid">
+
+            <div class="about-visual reveal">
+
+                <div class="mine-card">
+
+                    <strong>
+                        Andes Minerals S.A.C.
+                    </strong>
+
+                    <span>
+                        Ingeniería • Minería • Procesamiento
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="about-content reveal">
+
+                <div class="section-tag">
+                    Nuestra empresa
+                </div>
+
+                <h2>
+                    Del recurso natural
+                    a la transformación industrial.
+                </h2>
+
+                <p>
+                    SILICORP S.A.C. nace con la visión de
+                    desarrollar una minería peruana moderna,
+                    eficiente y responsable.
+                </p>
+
+                <p>
+                    Nuestra actividad comprende la exploración
+                    geológica, extracción de minerales,
+                    concentración, procesamiento y preparación
+                    de productos minerales destinados a
+                    diferentes industrias.
+                </p>
+
+                <p>
+                    Trabajamos bajo una filosofía basada en
+                    seguridad, innovación, excelencia operacional
+                    y responsabilidad ambiental.
+                </p>
+
+                <ul class="check-list">
+
+                    <li>
+                        <i>✓</i>
+                        Operaciones orientadas a la eficiencia.
+                    </li>
+
+                    <li>
+                        <i>✓</i>
+                        Gestión responsable de recursos.
+                    </li>
+
+                    <li>
+                        <i>✓</i>
+                        Tecnología aplicada a la minería.
+                    </li>
+
+                    <li>
+                        <i>✓</i>
+                        Desarrollo sostenible.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     MINERALES
+===================================================== -->
+
+<section class="minerals" id="minerales">
+
+    <div class="container">
+
+        <div class="section-header reveal">
+
+            <div class="section-tag">
+                Nuestros recursos
+            </div>
+
+            <h2>
+                Dos minerales.
+                Un mismo propósito.
+            </h2>
+
+            <p>
+                Desarrollamos cadenas de valor orientadas a
+                convertir recursos minerales peruanos en
+                insumos para industrias nacionales e
+                internacionales.
+            </p>
+
+        </div>
+
+        <div class="minerals-grid">
+
+            <!-- COBRE -->
+
+            <article class="mineral-card reveal">
+
+                <div class="mineral-symbol">
+                    Cu
+                </div>
+
+                <h3>
+                    Cobre
+                </h3>
+
+                <p>
+                    Mineral estratégico para la electrificación,
+                    infraestructura, construcción, transporte
+                    y tecnologías energéticas.
+                </p>
+
+                <ul>
+
+                    <li>
+                        Concentrado de cobre
+                    </li>
+
+                    <li>
+                        Procesamiento y valorización
+                    </li>
+
+                    <li>
+                        Control de calidad mineral
+                    </li>
+
+                    <li>
+                        Trazabilidad operacional
+                    </li>
+
+                </ul>
+
+            </article>
+
+
+            <!-- SILICIO -->
+
+            <article class="mineral-card silicon reveal">
+
+                <div class="mineral-symbol">
+                    Si
+                </div>
+
+                <h3>
+                    Silicio
+                </h3>
+
+                <p>
+                    Trabajamos con recursos silíceos como
+                    cuarzo y sílice, materia prima utilizada
+                    en diferentes procesos industriales.
+                </p>
+
+                <ul>
+
+                    <li>
+                        Selección y procesamiento de sílice
+                    </li>
+
+                    <li>
+                        Preparación granulométrica
+                    </li>
+
+                    <li>
+                        Control de pureza
+                    </li>
+
+                    <li>
+                        Aplicaciones industriales
+                    </li>
+
+                </ul>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PROCESO
+===================================================== -->
+
+<section class="process" id="proceso">
+
+    <div class="container">
+
+        <div class="section-header reveal">
+
+            <div class="section-tag">
+                Cadena productiva
+            </div>
+
+            <h2>
+                Del terreno al producto.
+            </h2>
+
+            <p>
+                Nuestro modelo integra exploración,
+                extracción, procesamiento, control y
+                despacho.
+            </p>
+
+        </div>
+
+        <div class="process-grid">
+
+            <div class="process-step reveal">
+
+                <div class="step-number">
+                    01
+                </div>
+
+                <h3>
+                    Exploración
+                </h3>
+
+                <p>
+                    Estudios geológicos, geofísicos,
+                    muestreo y evaluación de recursos.
+                </p>
+
+            </div>
+
+            <div class="process-step reveal">
+
+                <div class="step-number">
+                    02
+                </div>
+
+                <h3>
+                    Extracción
+                </h3>
+
+                <p>
+                    Operaciones mineras diseñadas bajo
+                    criterios de seguridad y eficiencia.
+                </p>
+
+            </div>
+
+            <div class="process-step reveal">
+
+                <div class="step-number">
+                    03
+                </div>
+
+                <h3>
+                    Concentración
+                </h3>
+
+                <p>
+                    Separación y concentración de los
+                    minerales aprovechables.
+                </p>
+
+            </div>
+
+            <div class="process-step reveal">
+
+                <div class="step-number">
+                    04
+                </div>
+
+                <h3>
+                    Procesamiento
+                </h3>
+
+                <p>
+                    Transformación y acondicionamiento
+                    para aplicaciones industriales.
+                </p>
+
+            </div>
+
+            <div class="process-step reveal">
+
+                <div class="step-number">
+                    05
+                </div>
+
+                <h3>
+                    Logística
+                </h3>
+
+                <p>
+                    Gestión, almacenamiento y despacho
+                    hacia nuestros clientes.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     STATS
+===================================================== -->
+
+<section class="stats">
+
+    <div class="container">
+
+        <div class="stats-grid">
+
+            <div class="stat-box reveal">
+
+                <strong
+                    class="counter"
+                    data-target="15">
+                    0
+                </strong>
+
+                <span>
+                    Años de experiencia
+                </span>
+
+            </div>
+
+            <div class="stat-box reveal">
+
+                <strong
+                    class="counter"
+                    data-target="2">
+                    0
+                </strong>
+
+                <span>
+                    Líneas minerales
+                </span>
+
+            </div>
+
+            <div class="stat-box reveal">
+
+                <strong
+                    class="counter"
+                    data-target="100">
+                    0
+                </strong>
+
+                <span>
+                    % compromiso operacional
+                </span>
+
+            </div>
+
+            <div class="stat-box reveal">
+
+                <strong
+                    class="counter"
+                    data-target="24">
+                    0
+                </strong>
+
+                <span>
+                    /7 monitoreo operacional
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SOSTENIBILIDAD
+===================================================== -->
+
+<section
+    class="sustainability"
+    id="sostenibilidad">
+
+    <div class="container">
+
+        <div class="section-header reveal">
+
+            <div class="section-tag">
+                Sostenibilidad
+            </div>
+
+            <h2>
+                Minería responsable para
+                las próximas generaciones.
+            </h2>
+
+            <p>
+                Entendemos la actividad minera como una
+                responsabilidad de largo plazo con las
+                personas, los ecosistemas y el desarrollo
+                del país.
+            </p>
+
+        </div>
+
+        <div class="sustainability-grid">
+
+            <article class="sustain-card reveal">
+
+                <div class="sustain-icon">
+                    ♻
+                </div>
+
+                <h3>
+                    Gestión ambiental
+                </h3>
+
+                <p>
+                    Implementamos prácticas orientadas a
+                    reducir impactos, optimizar recursos
+                    y mejorar continuamente nuestro
+                    desempeño ambiental.
+                </p>
+
+            </article>
+
+            <article class="sustain-card reveal">
+
+                <div class="sustain-icon">
+                    💧
+                </div>
+
+                <h3>
+                    Gestión del agua
+                </h3>
+
+                <p>
+                    Priorizamos el monitoreo, control y
+                    uso eficiente del agua dentro de
+                    nuestras operaciones.
+                </p>
+
+            </article>
+
+            <article class="sustain-card reveal">
+
+                <div class="sustain-icon">
+                    ⚡
+                </div>
+
+                <h3>
+                    Eficiencia energética
+                </h3>
+
+                <p>
+                    Buscamos optimizar el consumo energético
+                    mediante tecnología, automatización y
+                    mejora continua.
+                </p>
+
+            </article>
+
+            <article class="sustain-card reveal">
+
+                <div class="sustain-icon">
+                    👷
+                </div>
+
+                <h3>
+                    Seguridad
+                </h3>
+
+                <p>
+                    La seguridad de nuestros trabajadores
+                    constituye un principio fundamental
+                    de nuestra cultura empresarial.
+                </p>
+
+            </article>
+
+            <article class="sustain-card reveal">
+
+                <div class="sustain-icon">
+                    🌱
+                </div>
+
+                <h3>
+                    Biodiversidad
+                </h3>
+
+                <p>
+                    Promovemos prácticas de prevención,
+                    mitigación y recuperación de áreas
+                    intervenidas.
+                </p>
+
+            </article>
+
+            <article class="sustain-card reveal">
+
+                <div class="sustain-icon">
+                    🤝
+                </div>
+
+                <h3>
+                    Comunidades
+                </h3>
+
+                <p>
+                    Buscamos construir relaciones transparentes
+                    y generar oportunidades de desarrollo
+                    alrededor de nuestras operaciones.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     OPERACIONES
+===================================================== -->
+
+<section class="operations" id="operaciones">
+
+    <div class="container">
+
+        <div class="section-header reveal">
+
+            <div class="section-tag">
+                Presencia en Perú
+            </div>
+
+            <h2>
+                Operaciones conectadas
+                con el territorio.
+            </h2>
+
+            <p>
+                Nuestra estrategia contempla zonas con
+                potencial mineralógico y acceso a
+                infraestructura logística.
+            </p>
+
+        </div>
+
+        <div class="operations-grid">
+
+            <div class="map reveal">
+
+                <div
+                    class="location-dot dot-1"
+                    data-name="Centro"
+                    title="Zona Centro">
+                </div>
+
+                <div
+                    class="location-dot dot-2"
+                    data-name="Sur"
+                    title="Zona Sur">
+                </div>
+
+                <div
+                    class="location-dot dot-3"
+                    data-name="Moquegua"
+                    title="Moquegua">
+                </div>
+
+            </div>
+
+            <div class="operations-info reveal">
+
+                <div class="operation-item">
+
+                    <h3>
+                        Exploración geológica
+                    </h3>
+
+                    <p>
+                        Evaluación de zonas con potencial
+                        para cobre y recursos silíceos.
+                    </p>
+
+                </div>
+
+                <div class="operation-item">
+
+                    <h3>
+                        Centro de procesamiento
+                    </h3>
+
+                    <p>
+                        Infraestructura destinada al
+                        tratamiento y acondicionamiento
+                        de minerales.
+                    </p>
+
+                </div>
+
+                <div class="operation-item">
+
+                    <h3>
+                        Logística
+                    </h3>
+
+                    <p>
+                        Integración de transporte,
+                        almacenamiento y distribución.
+                    </p>
+
+                </div>
+
+                <div class="operation-item">
+
+                    <h3>
+                        Monitoreo digital
+                    </h3>
+
+                    <p>
+                        Incorporación progresiva de
+                        sensores, analítica de datos e
+                        inteligencia artificial.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="cta">
+
+    <div class="container">
+
+        <div class="cta-box reveal">
+
+            <div>
+
+                <h2>
+                    Construyamos juntos
+                    la minería del futuro.
+                </h2>
+
+                <p>
+                    Conversemos sobre oportunidades comerciales,
+                    suministro de minerales y proyectos.
+                </p>
+
+            </div>
+
+            <a
+                href="#contacto"
+                class="btn btn-primary">
+                Solicitar información →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTACTO
+===================================================== -->
+
+<section class="contact" id="contacto">
+
+    <div class="container">
+
+        <div class="contact-grid">
+
+            <div class="contact-info reveal">
+
+                <div class="section-tag">
+                    Contacto
+                </div>
+
+                <h2>
+                    Hablemos de nuevos proyectos.
+                </h2>
+
+                <p>
+                    Nuestro equipo está disponible para
+                    atender consultas comerciales,
+                    oportunidades de colaboración y
+                    proyectos relacionados con minería
+                    y procesamiento mineral.
+                </p>
+
+                <div class="contact-detail">
+
+                    <div class="contact-detail-icon">
+                        📍
+                    </div>
+
+                    <div>
+                        <strong>
+                            Oficina central
+                        </strong>
+
+                        <span>
+                            Lima, Perú
+                        </span>
+                    </div>
+
+                </div>
+
+                <div class="contact-detail">
+
+                    <div class="contact-detail-icon">
+                        ✉
+                    </div>
+
+                    <div>
+                        <strong>
+                            Correo
+                        </strong>
+
+                        <span>
+                            contacto@silicorp.pe
+                        </span>
+                    </div>
+
+                </div>
+
+                <div class="contact-detail">
+
+                    <div class="contact-detail-icon">
+                        ☎
+                    </div>
+
+                    <div>
+                        <strong>
+                            Teléfono
+                        </strong>
+
+                        <span>
+                            +51 1 500 0000
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <form
+                class="contact-form reveal"
+                id="contactForm">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>
+                            Nombre
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Tu nombre"
+                            required>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+                            Empresa
+                        </label>
+
+                        <input
+                            type="text"
+                            id="company"
+                            placeholder="Empresa">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+                            Correo electrónico
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="correo@empresa.com"
+                            required>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+                            Motivo
+                        </label>
+
+                        <select id="reason">
+
+                            <option>
+                                Información general
+                            </option>
+
+                            <option>
+                                Oportunidad comercial
+                            </option>
+
+                            <option>
+                                Proveedor
+                            </option>
+
+                            <option>
+                                Proyecto minero
+                            </option>
+
+                            <option>
+                                Otro
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="form-group full">
+
+                        <label>
+                            Mensaje
+                        </label>
+
+                        <textarea
+                            id="message"
+                            placeholder="Escribe tu consulta..."
+                            required></textarea>
+
+                    </div>
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="btn btn-primary form-submit">
+
+                    Enviar mensaje →
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+
+                <a
+                    href="#inicio"
+                    class="logo">
+
+                    <div class="logo-icon">
+                        ⛰
+                    </div>
+
+                    <div>
+                        <strong>
+                            ANDES MINERALS
+                        </strong>
+
+                        <span>
+                            MINERÍA • PROCESAMIENTO
+                        </span>
+                    </div>
+
+                </a>
+
+                <p>
+                    Recursos minerales peruanos,
+                    transformados con tecnología,
+                    responsabilidad y visión de futuro.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Empresa
+                </h4>
+
+                <ul>
+
+                    <li>
+                        <a href="#empresa">
+                            Nosotros
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#minerales">
+                            Minerales
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#proceso">
+                            Procesos
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Sostenibilidad
+                </h4>
+
+                <ul>
+
+                    <li>
+                        <a href="#sostenibilidad">
+                            Medio ambiente
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#sostenibilidad">
+                            Seguridad
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#sostenibilidad">
+                            Comunidades
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Contacto
+                </h4>
+
+                <ul>
+
+                    <li>
+                        <a href="#contacto">
+                            Contáctanos
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Trabaja con nosotros
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Proveedores
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 Andes Minerals S.A.C.
+                Todos los derechos reservados.
+            </span>
+
+            <span>
+                Perú • Minería responsable
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+     BACK TO TOP
+===================================================== -->
+
+<button
+    class="back-top"
+    id="backTop"
+    aria-label="Volver arriba">
+
+    ↑
+
+</button>
+
+
+<!-- =====================================================
+     MODAL
+===================================================== -->
+
+<div
+    class="modal"
+    id="successModal">
+
+    <div class="modal-content">
+
+        <button
+            class="modal-close"
+            id="modalClose">
+            ×
+        </button>
+
+        <h2>
+            ¡Mensaje preparado!
+        </h2>
+
+        <p>
+            Gracias por contactar con Andes Minerals.
+            Este formulario está preparado para conectarse
+            posteriormente con un servicio de correo,
+            API o backend empresarial.
+        </p>
+
+        <br>
+
+        <button
+            class="btn btn-primary"
+            id="modalOk">
+            Entendido
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   NAVBAR SCROLL
+========================================================= */
+
+const navbar =
+    document.getElementById("navbar");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 50) {
+
+        navbar.classList.add("scrolled");
+
+    } else {
+
+        navbar.classList.remove("scrolled");
+
+    }
+
+});
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menuBtn =
+    document.getElementById("menuBtn");
+
+const navLinks =
+    document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+
+    navLinks.classList.toggle("active");
+
+});
+
+document
+    .querySelectorAll(".nav-links a")
+    .forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            navLinks.classList.remove("active");
+
+        });
+
+    });
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+const themeBtn =
+    document.getElementById("themeBtn");
+
+themeBtn.addEventListener("click", () => {
+
+    document.body.classList.toggle("dark");
+
+    if (
+        document.body.classList.contains("dark")
+    ) {
+
+        themeBtn.textContent = "☀";
+
+        localStorage.setItem(
+            "andesTheme",
+            "dark"
+        );
+
+    } else {
+
+        themeBtn.textContent = "☾";
+
+        localStorage.setItem(
+            "andesTheme",
+            "light"
+        );
+
+    }
+
+});
+
+
+if (
+    localStorage.getItem("andesTheme")
+    === "dark"
+) {
+
+    document.body.classList.add("dark");
+
+    themeBtn.textContent = "☀";
+
+}
+
+
+/* =========================================================
+   REVEAL ON SCROLL
+========================================================= */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+const observer =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target
+                        .classList
+                        .add("visible");
+
+                    observer.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+        {
+            threshold: .12
+        }
+    );
+
+revealElements.forEach(element => {
+
+    observer.observe(element);
+
+});
+
+
+/* =========================================================
+   COUNTERS
+========================================================= */
+
+const counters =
+    document.querySelectorAll(".counter");
+
+let countersStarted = false;
+
+function startCounters() {
+
+    if (countersStarted) return;
+
+    countersStarted = true;
+
+    counters.forEach(counter => {
+
+        const target =
+            Number(
+                counter.dataset.target
+            );
+
+        let current = 0;
+
+        const increment =
+            Math.max(
+                1,
+                Math.ceil(target / 60)
+            );
+
+        const update = () => {
+
+            current += increment;
+
+            if (current >= target) {
+
+                counter.textContent =
+                    target;
+
+                return;
+
+            }
+
+            counter.textContent =
+                current;
+
+            requestAnimationFrame(update);
+
+        };
+
+        update();
+
+    });
+
+}
+
+const statsSection =
+    document.querySelector(".stats");
+
+const statsObserver =
+    new IntersectionObserver(
+        entries => {
+
+            if (
+                entries[0].isIntersecting
+            ) {
+
+                startCounters();
+
+            }
+
+        },
+        {
+            threshold: .35
+        }
+    );
+
+statsObserver.observe(statsSection);
+
+
+/* =========================================================
+   CONTACT FORM
+========================================================= */
+
+const contactForm =
+    document.getElementById(
+        "contactForm"
+    );
+
+const successModal =
+    document.getElementById(
+        "successModal"
+    );
+
+contactForm.addEventListener(
+    "submit",
+    event => {
+
+        event.preventDefault();
+
+        const name =
+            document.getElementById(
+                "name"
+            ).value.trim();
+
+        const email =
+            document.getElementById(
+                "email"
+            ).value.trim();
+
+        const message =
+            document.getElementById(
+                "message"
+            ).value.trim();
+
+        if (
+            !name ||
+            !email ||
+            !message
+        ) {
+
+            alert(
+                "Por favor completa los campos obligatorios."
+            );
+
+            return;
+
+        }
+
+        successModal.classList.add(
+            "active"
+        );
+
+        contactForm.reset();
+
+    }
+);
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+const modalClose =
+    document.getElementById(
+        "modalClose"
+    );
+
+const modalOk =
+    document.getElementById(
+        "modalOk"
+    );
+
+function closeModal() {
+
+    successModal.classList.remove(
+        "active"
+    );
+
+}
+
+modalClose.addEventListener(
+    "click",
+    closeModal
+);
+
+modalOk.addEventListener(
+    "click",
+    closeModal
+);
+
+successModal.addEventListener(
+    "click",
+    event => {
+
+        if (
+            event.target ===
+            successModal
+        ) {
+
+            closeModal();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   BACK TO TOP
+========================================================= */
+
+const backTop =
+    document.getElementById(
+        "backTop"
+    );
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        if (
+            window.scrollY > 600
+        ) {
+
+            backTop.classList.add(
+                "show"
+            );
+
+        } else {
+
+            backTop.classList.remove(
+                "show"
+            );
+
+        }
+
+    }
+);
+
+backTop.addEventListener(
+    "click",
+    () => {
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+);
+
+
+/* =========================================================
+   MAP INTERACTION
+========================================================= */
+
+document
+    .querySelectorAll(".location-dot")
+    .forEach(dot => {
+
+        dot.addEventListener(
+            "click",
+            () => {
+
+                const name =
+                    dot.dataset.name;
+
+                alert(
+                    "Zona seleccionada: "
+                    + name
+                    + "\n\n"
+                    + "Esta sección puede conectarse "
+                    + "posteriormente con un mapa "
+                    + "interactivo real."
+                );
+
+            }
+        );
+
+    });
+
+
+/* =========================================================
+   ESCAPE MODAL
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            closeModal();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
